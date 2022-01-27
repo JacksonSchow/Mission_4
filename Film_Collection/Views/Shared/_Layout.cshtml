@@ -1,0 +1,27 @@
+﻿@* The shared layout that uses the navbar. You'll see on each page that I created a fun logo for the site. I didn't include that here because I wanted each page to control its own destiny as far as bootstrap goes*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="icon" href="~/img/Joel_Hilton's_Film_Collection.jpg">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/MyStyle.css" />
+</head>
+<body>
+    <header>
+        <a asp-controller="Home" asp-action="Index"><img src="~/img/Joel_Hilton's_Film_Collection.png"></a>
+        <nav>
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a>
+                <li><a asp-controller="Home" asp-action="Podcast">My Podcasts</a>
+                <li><a asp-controller="Home" asp-action="MoviesForm">Add a Movie</a>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿@{
+    Layout = null;
+}
+
+@model Film_Collection.Models.MoviesModel
+@* A confirmation page I created to show the results of the request. I know I am not using the shared layout, but I wanted the Confirmation page to appear in the navbar only on this page. I use the model object created in
+    the controller to populate the list items.*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmation</title>
+    <link rel="icon" href="~/img/Joel_Hilton's_Film_Collection.jpg">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/MyStyle.css" />
+</head>
+<body>
+    <header>
+        <a asp-controller="Home" asp-action="Index"><img src="~/img/Joel_Hilton's_Film_Collection.png"></a>
+        <nav>
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a>
+                <li><a asp-controller="Home" asp-action="Podcast">My Podcasts</a>
+                <li><a asp-controller="Home" asp-action="MoviesForm">Add a Movie</a>
+                <li><a asp-controller="Home" asp-action="Confirmation">Confirmation</a>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 text-center">
+                <img src="~/img/Joel_Hilton's_Film_Collection.jpg" />
+                <br /><br />
+                <h1>Success!</h1>
+                <p>We successfully added <b>@Model.Title</b> to the collection!  </p>
+                <ul class="no-bullets">
+                    <li>Category: @Model.Category</li>
+                    <li>Title: @Model.Title</li>
+                    <li>Year: @Model.Year</li>
+                    <li>Director: @Model.Director</li>
+                    <li>Rating: @Model.Rating</li>
+                    @if (Model.Edited == true)
+                    {
+                        <li>Edited: Yes</li>
+                    }
+                    else
+                    {
+                        <li>Edited: No</li>
+                    }
+                    @if (Model.Lent_To != null)
+                    {
+                        <li>Lent To: @Model.Lent_To</li>
+                    }
+                    @if (Model.Lent_To != null)
+                    {
+                        <li>Notes: @Model.Category</li>
+                    }
+                </ul>
+                <br />
+                <button type="button" class="btn btn-secondary" onclick="location.href='Index';">Return Home</button>
+                <button type="button" class="btn btn-secondary" onclick="location.href='MoviesForm';">Add Another Movie</button>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Add a Movie";
+}
+
+@model Film_Collection.Models.MoviesModel
+@* Form for Joel to add in his movies to the database*@
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 text-center">
+        <img src="~/img/Joel_Hilton's_Film_Collection.jpg" />
+        <br /><br />
+        <h1>Add a Movie</h1>
+        <br />
+        @* The form contains inputs for all fields in Joel's spreadsheet. I also included the validation error messages for each field if they are not entered correctly. The button submits a post request to the server*@
+        <form method="post">
+            <div class="form-group row left">
+                <div class="col-3 col-form-label"></div>
+                <div class="col-2 col-form-label">
+                    <label asp-for="Category">Category</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" asp-for="Category" /><br />
+                    @Html.ValidationMessageFor(m => m.Category, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+            <div class="form-group row left">
+                <div class="col-3"></div>
+                <div class="col-2 col-form-label">
+                    <label asp-for="Title">Title</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" asp-for="Title" /><br />
+                    @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+            <div class="form-group row left">
+                <div class="col-3"></div>
+                <div class="col-2 col-form-label">
+                    <label asp-for="Year">Year</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" asp-for="Year" /><br />
+                    @Html.ValidationMessageFor(m => m.Year, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+            <div class="form-group row left">
+                <div class="col-3"></div>
+                <div class="col-2 col-form-label">
+                    <label asp-for="Director">Director</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" asp-for="Director" /><br />
+                    @Html.ValidationMessageFor(m => m.Director, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+            <div class="form-group row left">
+                <div class="col-3"></div>
+                <div class="col-2 col-form-label">
+                    <label asp-for="Rating">Rating</label>
+                </div>
+                <div class="col-4">
+                    <select class="form-control" asp-for="Rating">
+                        <option></option>
+                        <option value="G">G</option>
+                        <option value="PG">PG</option>
+                        <option value="PG-13">PG-13</option>
+                        <option value="R">R</option>
+                        <option value="UR">UR</option>
+                        <option value="NR">NR</option>
+                    </select>
+                    @Html.ValidationMessageFor(m => m.Rating, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+            <div class="form-group row left">
+                <div class="col-3"></div>
+                <div class="col-2 col-form-label">
+                    <label asp-for="Edited">Edited</label>
+                </div>
+                <div class="col-4">
+                    <select class="form-control" asp-for="Edited">
+                        <option value="false"></option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                    @Html.ValidationMessageFor(m => m.Edited, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+            <div class="form-group row left">
+                <div class="col-3"></div>
+                <div class="col-2 col-form-label">
+                    <label asp-for="Lent_To">Lent To</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" asp-for="Lent_To" /><br />
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+            <div class="form-group row left">
+                <div class="col-3"></div>
+                <div class="col-2 col-form-label">
+                    <label asp-for="Notes">Notes</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" asp-for="Notes" /><br />
+                    @Html.ValidationMessageFor(m => m.Notes, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+            <button class="btn btn-secondary" type="submit">Add Movie</button>
+        </form>
+    </div>
+    <div class="col-2"></div>
+</div>
